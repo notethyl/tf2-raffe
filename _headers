@@ -1,0 +1,6 @@
+/*
+  X-Frame-Options: ALLOWALL
+  Cache-Control: no-store
+
+/items/*
+  Cache-Control: public, max-age=604800
